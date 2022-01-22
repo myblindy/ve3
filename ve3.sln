@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ve3.shared", "ve3.shared\ve3.shared.shproj", "{4C263A09-7E8B-4AF0-A79A-4F7ED0267EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ve3", "ve3\ve3.csproj", "{2963C722-0DD6-48CE-A116-82D205145996}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ve3.shared\ve3.shared.projitems*{2963c722-0dd6-48ce-a116-82d205145996}*SharedItemsImports = 5
+		ve3.shared\ve3.shared.projitems*{4c263a09-7e8b-4af0-a79a-4f7ed0267ea0}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2963C722-0DD6-48CE-A116-82D205145996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2963C722-0DD6-48CE-A116-82D205145996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2963C722-0DD6-48CE-A116-82D205145996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2963C722-0DD6-48CE-A116-82D205145996}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8313D973-95F6-4615-80D4-044454C164F5}
+	EndGlobalSection
+EndGlobal

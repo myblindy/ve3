@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FFmpeg.AutoGen" Version="4.4.1.1" />
+    <PackageReference Include="MvvmDialogs" Version="8.0.0" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    <PackageReference Include="ReactiveUI" Version="17.1.17" />
+
+    <Using Include="DynamicData" />
+    <Using Include="GalaSoft.MvvmLight.Ioc" />
+    <Using Include="MvvmDialogs" />
+    <Using Include="ReactiveUI" />
+    <Using Include="System" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Collections.ObjectModel" />
+    <Using Include="System.Reactive.Linq" />
+    <Using Include="System.Runtime.InteropServices" />
+    <Using Include="System.Text.RegularExpressions" />
+    <Using Include="System.Threading" />
+    <Using Include="ve3.Services" />
+    <Using Include="ve3.Views" />
+    <Using Include="System.Windows"/>
+    <Using Include="System.Windows.Media"/>
+    <Using Include="System.Windows.Media.Imaging"/>
+  </ItemGroup>
+
+  <Import Project="..\ve3.shared\ve3.shared.projitems" Label="Shared" />
+
+</Project>
