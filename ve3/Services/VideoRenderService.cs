@@ -2,10 +2,8 @@
 
 namespace ve3.Services;
 
-unsafe class VideoRenderService
+unsafe class VideoRenderService : IDisposable
 {
-    readonly int outputWidth, outputHeight;
-
     readonly AVFormatContext* formatContext;
     readonly AVStream* videoStream;
     readonly AVCodecContext* codecDecoderContext;
@@ -15,7 +13,7 @@ unsafe class VideoRenderService
     readonly SwsContext* toRgbSwsContext;
 
     TimeSpan? seekTimeStamp;
-
+    private bool disposedValue;
     const int framesMaxCount = 30;
     readonly Queue<PointerWrapper<AVFrame>> frames = new();
     readonly object framesQueueSync = new();
@@ -278,6 +276,45 @@ unsafe class VideoRenderService
         CheckAvSuccess(ffmpeg.av_frame_copy_props(dst, src));
 
         return dst;
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposedValue)
+        {
+            if (disposing)
+            {
+                // managed state
+            }
+
+            // unmanaged resources 
+            fixed (AVFrame** pInputFrame = &inputFrame)
+                ffmpeg.av_frame_free(pInputFrame);
+            fixed (AVPacket** pInputPacket = &inputPacket)
+                ffmpeg.av_packet_free(pInputPacket);
+
+            while (frames.Dequeue() is { } frame)
+                ffmpeg.av_frame_free(&frame.Data);
+
+            fixed (AVCodecContext** pCodecDecoderContext = &codecDecoderContext)
+                ffmpeg.avcodec_free_context(pCodecDecoderContext);
+            ffmpeg.avformat_free_context(formatContext);
+
+            ffmpeg.sws_freeContext(toRgbSwsContext);
+
+            disposedValue = true;
+        }
+    }
+
+    ~VideoRenderService()
+    {
+        Dispose(disposing: false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
     }
 }
 
