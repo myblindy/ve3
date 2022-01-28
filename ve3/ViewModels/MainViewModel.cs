@@ -1,6 +1,4 @@
-﻿using MvvmDialogs.FrameworkDialogs.OpenFile;
-
-namespace ve3.ViewModels;
+﻿namespace ve3.ViewModels;
 
 class MainViewModel : ReactiveObject
 {
