@@ -4,6 +4,8 @@ namespace ve3.Services;
 
 unsafe class VideoRenderService : IDisposable
 {
+    public static readonly ReadOnlyCollection<string> SupportedFormats = new(new[] { "mkv", "mp4", "avi", "webm" });
+
     readonly AVFormatContext* formatContext;
     readonly AVStream* videoStream;
     readonly AVCodecContext* codecDecoderContext;

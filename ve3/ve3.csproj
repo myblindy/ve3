@@ -10,30 +10,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\**" />
+    <EmbeddedResource Include="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Images\open-video.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FFmpeg.AutoGen" Version="4.4.1.1" />
     <PackageReference Include="MvvmDialogs" Version="8.0.0" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
-    <PackageReference Include="ReactiveUI" Version="17.1.17" />
+    <PackageReference Include="ReactiveUI.WPF" Version="17.1.17" />
+    <Resource Include="Images\open-video.png" />
 
     <Using Include="DynamicData" />
     <Using Include="GalaSoft.MvvmLight.Ioc" />
     <Using Include="MvvmDialogs" />
     <Using Include="ReactiveUI" />
     <Using Include="System" />
+    <Using Include="System.Linq" />
     <Using Include="System.Collections.Generic" />
     <Using Include="System.Collections.ObjectModel" />
     <Using Include="System.ComponentModel" />
+    <Using Include="System.Diagnostics" />
     <Using Include="System.Reactive.Linq" />
     <Using Include="System.Runtime.InteropServices" />
     <Using Include="System.Text.RegularExpressions" />
     <Using Include="System.Threading" />
-    <Using Include="ve3.Services" />
-    <Using Include="ve3.Views" />
-    <Using Include="System.Diagnostics" />
     <Using Include="System.Windows" />
     <Using Include="System.Windows.Controls" />
+    <Using Include="System.Windows.Input" />
     <Using Include="System.Windows.Media" />
     <Using Include="System.Windows.Media.Imaging" />
+    <Using Include="ve3.Models" />
+    <Using Include="ve3.Services" />
+    <Using Include="ve3.ViewModels" />
+    <Using Include="ve3.Views" />
   </ItemGroup>
 
   <Import Project="..\ve3.shared\ve3.shared.projitems" Label="Shared" />

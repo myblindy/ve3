@@ -3,16 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ve3.Views" xmlns:controls="clr-namespace:ve3.Controls"
+        xmlns:local="clr-namespace:ve3.Views" 
+        xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
+        xmlns:controls="clr-namespace:ve3.Controls"
         mc:Ignorable="d"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+        md:DialogServiceViews.IsRegistered="True"
         x:Name="RootWindow"
         Title="MainView" Height="450" Width="800">
     <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Style="{StaticResource ToolbarButton}" controls:ToolbarButtonExtra.ImageSource="{StaticResource OpenVideoImage}"
+                    Content="Open Video" Command="{Binding OpenVideoCommand}"/>
+        </ToolBar>
         <DockPanel DockPanel.Dock="Top">
             <CheckBox DockPanel.Dock="Left" Margin="0,0,5,0" IsChecked="{Binding IsPlaying,ElementName=VideoControl}">Play</CheckBox>
             <TextBlock DockPanel.Dock="Left">Queued Frames: <Run Text="{Binding QueuedFramesCount, ElementName=VideoControl}"/></TextBlock>
             <Slider Maximum="{Binding VideoDuration, ElementName=VideoControl}" Value="{Binding VideoPosition, ElementName=VideoControl}"/>
         </DockPanel>
-        <controls:VideoControl x:Name="VideoControl"/>
+        <controls:VideoControl x:Name="VideoControl" FileName="{Binding VideoModel.FileName}"/>
     </DockPanel>
 </Window>
