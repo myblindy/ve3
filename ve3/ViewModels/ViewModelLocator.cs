@@ -3,7 +3,7 @@
 class ViewModelLocator
 {
     public ViewModelLocator() =>
-        SimpleIoc.Default.Register<MainViewModel>();
+        TinyIoCContainer.Current.Register<MainViewModel>();
 
-    public MainViewModel MainViewModel => SimpleIoc.Default.GetInstance<MainViewModel>();
+    public MainViewModel MainViewModel => TinyIoCContainer.Current.Resolve<MainViewModel>();
 }

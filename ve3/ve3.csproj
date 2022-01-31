@@ -21,15 +21,19 @@
   <ItemGroup>
     <PackageReference Include="FFmpeg.AutoGen" Version="4.4.1.1" />
     <PackageReference Include="MvvmDialogs" Version="8.0.0" />
-    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="ReactiveUI.WPF" Version="17.1.17" />
+    <PackageReference Include="TinyIoC" Version="1.4.0-rc1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
 
     <Using Include="DynamicData" />
-    <Using Include="GalaSoft.MvvmLight.Ioc" />
     <Using Include="MvvmDialogs" />
     <Using Include="MvvmDialogs.FrameworkDialogs.OpenFile" />
     <Using Include="MvvmDialogs.FrameworkDialogs.SaveFile" />
     <Using Include="ReactiveUI" />
+    <Using Include="TinyIoC" />
+    
     <Using Include="System" />
     <Using Include="System.Linq" />
     <Using Include="System.Collections.Generic" />
@@ -45,6 +49,7 @@
     <Using Include="System.Windows.Input" />
     <Using Include="System.Windows.Media" />
     <Using Include="System.Windows.Media.Imaging" />
+    
     <Using Include="ve3.Models" />
     <Using Include="ve3.Services" />
     <Using Include="ve3.ViewModels" />

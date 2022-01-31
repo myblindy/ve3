@@ -49,7 +49,7 @@ unsafe class VideoRenderService : IDisposable
             CheckAvSuccess(ffmpeg.avformat_open_input(pFormatContext, path, null, null));
         CheckAvSuccess(ffmpeg.avformat_find_stream_info(formatContext, null));
 
-        for (var pStream = *formatContext->streams; pStream < formatContext->streams[formatContext->nb_streams]; ++pStream)
+        for (var pStream = *formatContext->streams; pStream < formatContext->streams + formatContext->nb_streams; ++pStream)
             if (pStream->codecpar->codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO)
             {
                 videoStream = pStream;
